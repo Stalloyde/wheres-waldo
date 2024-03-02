@@ -3,11 +3,30 @@ import gameImage from './assets/whereswaldo.jpg';
 import wizardImage from './assets/wizard.gif';
 import wallyImage from './assets/wally-standing.png';
 import odlawImage from './assets/odlaw.gif';
+import ClickMenu from './ClickMenu';
+import target from './assets/icons8-target-32.png';
 import './App.css';
 
 function App() {
+  const [click, setClick] = useState(false);
+  const [mousePosition, setMousePosition] = useState({});
+
+  function handleClick(e) {
+    setClick(true);
+    setMousePosition({
+      x: e.clientX + 10,
+      y: e.clientY + 10,
+    });
+  }
+
+  const targetStyle = {
+    position: 'absolute',
+    top: mousePosition.y - 20,
+    left: mousePosition.x - 20,
+  };
+
   return (
-    <body>
+    <>
       <section>
         <h2>Characters</h2>
         <div>
@@ -27,10 +46,19 @@ function App() {
       <main>
         <div>
           *Insert timer here*
-          <img src={gameImage} alt='wheres-waldo'></img>
+          <img
+            src={gameImage}
+            alt='wheres-waldo'
+            onClick={(e) => handleClick(e)}></img>
+          {click && (
+            <>
+              <img style={targetStyle} src={target} alt='target' id='target' />
+              <ClickMenu setClick={setClick} mousePosition={mousePosition} />
+            </>
+          )}
         </div>
       </main>
-    </body>
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-body {
+#root {
   display: flex;
   height: 100vh;
 }
@@ -10,7 +10,7 @@ section {
   justify-content: center;
   padding: 5em;
   gap: 5em;
-  background-color: rgba(133, 122, 122, 0.39);
+  background-color: rgb(226, 218, 218);
 } 
 
 section > div {
@@ -36,4 +36,10 @@ main > div {
 main > div > img {
   width: 80%;
 } 
+
+
+main > div > img:hover {
+  cursor: pointer;
+} 
+
 

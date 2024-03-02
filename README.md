@@ -1,3 +1,6 @@
+Images:
+<a target="_blank" href="https://icons8.com/icon/6QAjT1jlxhqb/target">Target</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
