@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  height: 100vh;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5em;
+  gap: 5em;
+  background-color: rgba(133, 122, 122, 0.39);
+} 
+
+section > div {
+  display: grid;
+  text-align: center;
+}
+
+section > div > img {
+  height: 80px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+}
+
+main > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main > div > img {
+  width: 80%;
+} 
+
