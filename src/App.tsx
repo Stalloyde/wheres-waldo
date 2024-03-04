@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <section>
-        <h2>Characters</h2>
+        <h2>Find These Characters:</h2>
         <div>
           <img src={wizardImage} alt='wizard' />
           Wizard
@@ -41,14 +41,15 @@ function App() {
           <img src={odlawImage} alt='odlaw' />
           Odlow
         </div>
+        <div id='timer'>00:00:00</div>
       </section>
 
       <main>
         <div>
-          *Insert timer here*
           <img
             src={gameImage}
             alt='wheres-waldo'
+            id='whereswaldo'
             onClick={(e) => handleClick(e)}></img>
           {click && (
             <>
