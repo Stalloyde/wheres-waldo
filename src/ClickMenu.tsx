@@ -3,8 +3,8 @@ import './ClickMenu.css';
 function ClickMenu({ setClick, mousePosition }) {
   const clickMenuStyle = {
     position: 'absolute',
-    top: mousePosition.y,
-    left: mousePosition.x,
+    top: `${mousePosition.y + 0.5}%`,
+    left: `${mousePosition.x + 0.5}%`,
   };
 
   function handleClick() {

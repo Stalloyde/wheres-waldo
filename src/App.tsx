@@ -13,16 +13,20 @@ function App() {
 
   function handleClick(e) {
     setClick(true);
+
+    const xPercentage = (e.pageX / window.innerWidth) * 100;
+    const yPercentage = (e.pageY / window.innerHeight) * 100;
+
     setMousePosition({
-      x: e.clientX + 10,
-      y: e.clientY + 10,
+      x: xPercentage,
+      y: yPercentage,
     });
   }
 
   const targetStyle = {
     position: 'absolute',
-    top: mousePosition.y - 20,
-    left: mousePosition.x - 20,
+    top: `${mousePosition.y - 1.5}%`,
+    left: `${mousePosition.x - 0.5}%`,
   };
 
   return (
