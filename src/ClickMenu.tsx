@@ -1,6 +1,3 @@
-import { useState } from 'react';
-import React from 'react';
-import target from './assets/icons8-target-32.png';
 import './ClickMenu.css';
 
 function ClickMenu({ setClick, mousePosition }) {
