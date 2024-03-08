@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import App from './App';
 import userEvent from '@testing-library/user-event';
@@ -14,7 +14,7 @@ describe('App', () => {
 });
 
 describe('Click on game image', () => {
-  it('handleClick function works', async () => {
+  it('handleClick detects mousePosition correctly', async () => {
     const setClick = vi.fn();
     const setMousePosition = vi.fn();
     const handleClickMock = vi.fn();
@@ -60,6 +60,25 @@ describe('Click on game image', () => {
     await act(async () => user.click(gameImage));
     expect(screen.getByText(`Who's this?`)).toBeInTheDocument();
     expect(screen.getByAltText(`target`)).toBeInTheDocument();
-    const buttons = screen.getAllByRole('button');
+  });
+});
+
+describe('Click on ClickMenu', () => {
+  it('Unrenders ClickMenu on Wizard button click', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const gameImage = screen.getByAltText('wheres-waldo');
+    await act(async () => user.click(gameImage));
+    expect(screen.getByText(`Who's this?`)).toBeInTheDocument();
+    expect(screen.getByAltText(`target`)).toBeInTheDocument();
+
+    const button = screen.getByRole('button', { name: 'Wizard' });
+    await act(async () => user.click(button));
+
+    await waitFor(() => {
+      expect(screen.queryByText(`Who's this?`)).not.toBeInTheDocument();
+      expect(screen.queryByAltText(`target`)).not.toBeInTheDocument();
+    });
   });
 });
