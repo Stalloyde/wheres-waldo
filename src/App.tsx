@@ -26,7 +26,7 @@ function App() {
   const targetStyle = {
     position: 'absolute',
     top: `${mousePosition.y - 1.5}%`,
-    left: `${mousePosition.x - 0.5}%`,
+    left: `${mousePosition.x - 0.2}%`,
   };
 
   return (

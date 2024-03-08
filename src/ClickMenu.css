@@ -22,9 +22,3 @@ button:hover {
   background-color: rgb(238, 31, 31);
   cursor: pointer;
 }
-
-#target {
-  height:25px;
-  width: 25px;
-  position: absolute;
-}
