@@ -43,7 +43,7 @@ function App() {
         </div>
         <div>
           <img src={odlawImage} alt='odlaw' />
-          Odlow
+          Odlaw
         </div>
         <div id='timer'>00:00:00</div>
       </section>
