@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import usePreventZoom from './preventZoom';
 import gameImage from './assets/whereswaldo.jpg';
 import wizardImage from './assets/wizard.gif';
 import wallyImage from './assets/wally-standing.png';
@@ -10,6 +11,8 @@ import './App.css';
 function App() {
   const [click, setClick] = useState(false);
   const [mousePosition, setMousePosition] = useState({});
+
+  usePreventZoom();
 
   function handleClick(e) {
     setClick(true);
