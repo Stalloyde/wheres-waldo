@@ -1,7 +1,15 @@
 import { useState } from 'react';
 import './ClickMenu.css';
 
-function ClickMenu({ setClick, mousePosition, characters, setCharacters }) {
+function ClickMenu({
+  click,
+  setClick,
+  mousePosition,
+  characters,
+  setCharacters,
+  wrongCharacterModal,
+  setWrongCharacterModal,
+}) {
   const clickMenuStyle = {
     position: 'absolute',
     top: `${mousePosition.y + 0.5}%`,
@@ -28,20 +36,24 @@ function ClickMenu({ setClick, mousePosition, characters, setCharacters }) {
 
       const responseData = await response.json();
       if (!responseData.name) {
-        console.log(responseData);
-        //handle Wrong target
+        setWrongCharacterModal(!wrongCharacterModal);
       }
 
       const updatedCharacters = characters.map((prevState) => {
         if (prevState.name === responseData.name)
-          return { name: responseData.name, found: true };
+          return {
+            name: prevState.name,
+            found: true,
+            src: prevState.src,
+            alt: prevState.alt,
+          };
         return prevState;
       });
       setCharacters(updatedCharacters);
     } catch (err) {
       console.error(err);
     } finally {
-      setClick(false);
+      setClick(!click);
     }
   }
 
@@ -52,7 +64,7 @@ function ClickMenu({ setClick, mousePosition, characters, setCharacters }) {
         {characters.map((character) => {
           if (!character.found)
             return (
-              <li>
+              <li key={character.name}>
                 <button onClick={handleClick} name='targetCharacterName'>
                   {character.name}
                 </button>

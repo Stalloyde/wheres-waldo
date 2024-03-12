@@ -11,6 +11,7 @@ import './App.css';
 function App() {
   const [click, setClick] = useState(false);
   const [mousePosition, setMousePosition] = useState({});
+  const [wrongCharacterModal, setWrongCharacterModal] = useState(false);
   const [characters, setCharacters] = useState([
     {
       name: 'Wizard',
@@ -38,11 +39,22 @@ function App() {
     const xPercentage = (e.pageX / window.innerWidth) * 100;
     const yPercentage = (e.pageY / window.innerHeight) * 100;
 
-    setClick(true);
+    if (wrongCharacterModal) {
+      setClick(false);
+      setWrongCharacterModal(false);
+    } else {
+      setClick(!click);
+      setWrongCharacterModal(false);
+    }
+
     setMousePosition({
       x: xPercentage,
       y: yPercentage,
     });
+  }
+
+  function closeModal() {
+    setWrongCharacterModal(!wrongCharacterModal);
   }
 
   const targetStyle = {
@@ -58,13 +70,21 @@ function App() {
         <h2>Find These Characters:</h2>
 
         {characters.map((character) => {
-          if (!character.found)
+          if (!character.found) {
             return (
               <div key={character.name}>
                 <img src={character.src} alt={character.alt} />
                 {character.name}
               </div>
             );
+          } else {
+            return (
+              <div key={character.name} className='found'>
+                <img src={character.src} alt={character.alt} />
+                {character.name}
+              </div>
+            );
+          }
         })}
 
         <div id='timer'>00:00:00</div>
@@ -81,14 +101,23 @@ function App() {
             <>
               <img style={targetStyle} src={target} alt='target' id='target' />
               <ClickMenu
+                click={click}
+                onClick={closeModal}
                 setClick={setClick}
                 mousePosition={mousePosition}
                 characters={characters}
                 setCharacters={setCharacters}
+                wrongCharacterModal={wrongCharacterModal}
+                setWrongCharacterModal={setWrongCharacterModal}
               />
             </>
           )}
         </div>
+        {wrongCharacterModal && (
+          <div className='wrongCharacterModal' style={targetStyle}>
+            Wrong Character... Try again.
+          </div>
+        )}
       </main>
     </>
   );
