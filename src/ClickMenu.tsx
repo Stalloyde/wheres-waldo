@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ClickMenu.css';
 
-function ClickMenu({ setClick, mousePosition }) {
+function ClickMenu({ setClick, mousePosition, characters, setCharacters }) {
   const clickMenuStyle = {
     position: 'absolute',
     top: `${mousePosition.y + 0.5}%`,
@@ -24,12 +24,22 @@ function ClickMenu({ setClick, mousePosition }) {
 
       if (!response.ok) {
         console.error('Error');
-      } else {
-        const responseData = await response.json();
-        console.log(responseData);
       }
+
+      const responseData = await response.json();
+      if (!responseData.name) {
+        console.log(responseData);
+        //handle Wrong target
+      }
+
+      const updatedCharacters = characters.map((prevState) => {
+        if (prevState.name === responseData.name)
+          return { name: responseData.name, found: true };
+        return prevState;
+      });
+      setCharacters(updatedCharacters);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       setClick(false);
     }
@@ -39,21 +49,16 @@ function ClickMenu({ setClick, mousePosition }) {
     <>
       <ul style={clickMenuStyle}>
         Who's this?
-        <li>
-          <button onClick={handleClick} name='targetCharacterName'>
-            Wizard
-          </button>
-        </li>
-        <li>
-          <button onClick={handleClick} name='targetCharacterName'>
-            Wally
-          </button>
-        </li>
-        <li>
-          <button onClick={handleClick} name='targetCharacterName'>
-            Odlaw
-          </button>
-        </li>
+        {characters.map((character) => {
+          if (!character.found)
+            return (
+              <li>
+                <button onClick={handleClick} name='targetCharacterName'>
+                  {character.name}
+                </button>
+              </li>
+            );
+        })}
       </ul>
     </>
   );
