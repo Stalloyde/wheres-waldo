@@ -11,24 +11,24 @@ exports[`App > renders page 1`] = `
         </h2>
         <div>
           <img
-            alt="wizard"
+            alt="Wizard"
             src="/src/assets/wizard.gif"
           />
           Wizard
         </div>
         <div>
           <img
-            alt="wally"
-            src="/src/assets/wally-standing.png"
+            alt="Waldo"
+            src="/src/assets/waldo-standing.png"
           />
-          Wally
+          Waldo
         </div>
         <div>
           <img
-            alt="odlaw"
+            alt="Odlaw"
             src="/src/assets/odlaw.gif"
           />
-          Odlow
+          Odlaw
         </div>
         <div
           id="timer"
@@ -54,24 +54,24 @@ exports[`App > renders page 1`] = `
       </h2>
       <div>
         <img
-          alt="wizard"
+          alt="Wizard"
           src="/src/assets/wizard.gif"
         />
         Wizard
       </div>
       <div>
         <img
-          alt="wally"
-          src="/src/assets/wally-standing.png"
+          alt="Waldo"
+          src="/src/assets/waldo-standing.png"
         />
-        Wally
+        Waldo
       </div>
       <div>
         <img
-          alt="odlaw"
+          alt="Odlaw"
           src="/src/assets/odlaw.gif"
         />
-        Odlow
+        Odlaw
       </div>
       <div
         id="timer"
