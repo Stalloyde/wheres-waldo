@@ -63,7 +63,6 @@ function App() {
     left: `${mousePosition.x - 0.2}%`,
   };
 
-  characters.map((char) => console.log(char));
   return (
     <>
       <section>
