@@ -1,0 +1,34 @@
+.endGameModal {
+  display: grid;
+  grid-template-rows: 1fr 1fr 5fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(226, 218, 218);
+  padding: 10em;
+}
+
+.found2-container {
+   display: flex;
+   justify-content: center;
+  }
+
+.time, .leaderboard {
+  text-align: center;
+   padding: 1em;
+   border-bottom: 1px solid black;
+}
+
+
+.found2{
+  padding: 5px;
+  border: 3px solid green;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.found2 > img {
+  height: 60px;
+  opacity: 0.5;
+}
