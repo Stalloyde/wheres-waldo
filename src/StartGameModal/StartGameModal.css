@@ -1,0 +1,24 @@
+.startGameModal {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  grid-template-rows: 1fr 0.2fr 1fr;
+  background-color: rgb(226, 218, 218);
+  padding: 10em;
+  text-align: center;
+}
+
+.startGameModalImgContainer {
+  display:flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.startGameModalImgContainer > div {
+  display: grid;
+}
+
+.startGameModalImg {
+  height: 80px;
+}
