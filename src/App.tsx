@@ -5,8 +5,9 @@ import wizardImage from './assets/wizard.gif';
 import waldoImage from './assets/waldo-standing.png';
 import target from './assets/icons8-target-32.png';
 import odlawImage from './assets/odlaw.gif';
-import ClickMenu from './ClickMenu';
-import EndGameModal from './EndGameModal';
+import ClickMenu from './ClickMenu/ClickMenu';
+import EndGameModal from './EndGameModal/EndGameModal';
+import StartGameModal from './StartGameModal/StartGameModal';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [mousePosition, setMousePosition] = useState({});
   const [wrongCharacterModal, setWrongCharacterModal] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [isGameStart, setIsGameStart] = useState(false);
   const [characters, setCharacters] = useState([
     {
       name: 'Wizard',
@@ -84,6 +86,11 @@ function App() {
         <EndGameModal
           setGameOver={setIsGameOver}
           setCharacters={setCharacters}
+          characters={characters}
+        />
+      ) : !isGameStart ? (
+        <StartGameModal
+          setIsGameStart={setIsGameStart}
           characters={characters}
         />
       ) : (
