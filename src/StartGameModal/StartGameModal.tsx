@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './StartGameModal.css';
 
 function StartGameModal({ setIsGameStart, characters }) {
-  function startGame() {
+  async function startGame() {
     setIsGameStart(true);
   }
 

@@ -40,13 +40,6 @@ main {
   align-items: center;
 }
 
-#timer {
-  background-color: black;
-  padding: 0.2em;
-  color: rgb(34, 219, 34);
-  font-size: xx-large;
-}
-
 main > div {
   display: flex;
   flex-direction: column;
