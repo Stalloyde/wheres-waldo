@@ -8,7 +8,10 @@ function EndGameModal({
   elapsedTime,
   setElapsedTime,
 }) {
-  function restartGame() {
+  const [username, setUsername] = useState();
+
+  function restartGame(e) {
+    e.preventDefault();
     setGameOver(false);
 
     const updatedCharacters = characters.map((prevState) => {
@@ -43,27 +46,19 @@ function EndGameModal({
         <div>{elapsedTime}</div>
       </div>
 
-      <div className='leaderboard'>
-        <h2>Leaderboard:</h2>
-        <div>
-          <ol>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-          </ol>
+      <form method='post'>
+        <div className='inputContainer'>
+          <label for='username'>Submit your time to the Leaderboard:</label>
+          <input name='username' id='username' value={username}></input>
         </div>
-      </div>
 
-      <div>
-        <button onClick={restartGame}>Play Again</button>
-      </div>
+        <div className='buttonContainer'>
+          <button>Submit</button>
+          <button onClick={restartGame} id='cancelBtn'>
+            Cancel
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

@@ -1,12 +1,13 @@
 .endGameModal {
   display: grid;
-  grid-template-rows: 1fr 1fr 5fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
   background-color: rgb(226, 218, 218);
   padding: 10em;
+  text-align: center;
 }
 
 .found2-container {
@@ -14,13 +15,7 @@
    justify-content: center;
   }
 
-.time, .leaderboard {
-  text-align: center;
-   padding: 1em;
-   border-bottom: 1px solid black;
-}
-
-
+ 
 .found2{
   padding: 5px;
   border: 3px solid green;
@@ -31,4 +26,34 @@
 .found2 > img {
   height: 60px;
   opacity: 0.5;
+}
+
+.time {
+   padding: 1em;
+   border-bottom: 1px solid black;
+   border-top: 1px solid black;
+}
+
+
+.inputContainer {
+  display: grid;
+  gap: 1em;
+}
+
+.inputContainer > input {
+  height: 35px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.buttonContainer {
+  display: flex;
+  padding: 1em;
+  gap: 1em;
+}
+
+
+
+#cancelBtn {
+  background-color: black;
 }
