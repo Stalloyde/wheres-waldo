@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import './EndGameModal.css';
 
-function EndGameModal({ setGameOver, setCharacters, characters }) {
+function EndGameModal({
+  setGameOver,
+  setCharacters,
+  characters,
+  elapsedTime,
+  setElapsedTime,
+}) {
   function restartGame() {
     setGameOver(false);
 
@@ -14,6 +20,7 @@ function EndGameModal({ setGameOver, setCharacters, characters }) {
       };
     });
     setCharacters(updatedCharacters);
+    setElapsedTime(0);
   }
 
   return (
@@ -33,7 +40,7 @@ function EndGameModal({ setGameOver, setCharacters, characters }) {
 
       <div className='time'>
         <h2>Your Time:</h2>
-        <div>5:02:30</div>
+        <div>{elapsedTime}</div>
       </div>
 
       <div className='leaderboard'>

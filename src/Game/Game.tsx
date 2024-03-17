@@ -3,16 +3,15 @@ import usePreventZoom from '../preventZoom';
 import gameImage from '../assets/whereswaldo.jpg';
 import target from '../assets/icons8-target-32.png';
 import ClickMenu from '../ClickMenu/ClickMenu';
-import Timer from '../Timer/Timer';
 import './Game.css';
 
 function Game({
   isGameStart,
   setIsGameStart,
-  isGameOver,
   setIsGameOver,
   characters,
   setCharacters,
+  setElapsedTime,
 }) {
   const [click, setClick] = useState(false);
   const [mousePosition, setMousePosition] = useState({});
@@ -72,6 +71,7 @@ function Game({
         return char;
       }
     });
+
     if (filterFound.length === 3) {
       try {
         const response = await fetch(`http://localhost:3000/gameover`);
@@ -81,7 +81,7 @@ function Game({
         }
 
         const responseData = await response.json();
-        console.log(responseData);
+        setElapsedTime(responseData);
       } catch (err) {
         console.error(err);
       } finally {
@@ -117,8 +117,6 @@ function Game({
             );
           }
         })}
-
-        <Timer isGameStart={isGameStart} isGameOver={isGameOver} />
       </section>
 
       <main>

@@ -8,6 +8,7 @@ import StartGameModal from './StartGameModal/StartGameModal';
 import Game from './Game/Game';
 
 function App() {
+  const [elapsedTime, setElapsedTime] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const [isGameStart, setIsGameStart] = useState(false);
   const [characters, setCharacters] = useState([
@@ -40,6 +41,8 @@ function App() {
           setGameOver={setIsGameOver}
           setCharacters={setCharacters}
           characters={characters}
+          elapsedTime={elapsedTime}
+          setElapsedTime={setElapsedTime}
         />
       ) : !isGameStart ? (
         <StartGameModal
@@ -55,6 +58,7 @@ function App() {
             setIsGameOver={setIsGameOver}
             setCharacters={setCharacters}
             characters={characters}
+            setElapsedTime={setElapsedTime}
           />
         )
       )}
